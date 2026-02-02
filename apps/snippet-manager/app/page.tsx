@@ -1,3 +1,5 @@
+import { Button } from "@geniusgarage/ui/button";
+
 export default function Home() {
   return (
     <div
@@ -11,6 +13,8 @@ export default function Home() {
       <h1 style={{ fontSize: "2.5rem", marginBottom: "1rem" }}>
         GeniusGarage Snippet Manager
       </h1>
+      <Button>Get Started</Button>
+
       <p style={{ fontSize: "1.25rem", color: "#666" }}>
         Your code snippets, organized and ready to use.
       </p>
