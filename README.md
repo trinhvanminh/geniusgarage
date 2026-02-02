@@ -1,4 +1,4 @@
-# GeniusGarage
+# GeniusGarage Updated
 
 A developer platform for storing and sharing your favorite code snippets.
 
