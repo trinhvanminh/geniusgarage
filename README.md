@@ -1,4 +1,4 @@
-# GeniusGarage
+# GeniusGarage Test
 
 A developer platform for storing and sharing your favorite code snippets.
 
