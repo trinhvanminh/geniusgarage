@@ -22,13 +22,13 @@ Shared packages will be created as the course progresses.
 pnpm install
 ```
 
-2. Run the development server:
+1. Run the development server:
 
 ```bash
 pnpm dev
 ```
 
-3. Open [http://localhost:3000](http://localhost:3000) to see the marketing site.
+1. Open [http://localhost:3000](http://localhost:3000) to see the marketing site.
 
 ## Learn More
 
