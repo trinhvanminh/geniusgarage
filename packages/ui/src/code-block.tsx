@@ -19,7 +19,8 @@ export function CodeBlock({ code, language = "javascript" }: CodeBlockProps) {
       <div style={{ opacity: 0.6, marginBottom: "0.5rem", fontSize: "0.8rem" }}>
         {language}
       </div>
-      <pre style={{ margin: 0 }}>
+
+      <pre style={{ margin: 0 }} className="font-mono bg-gray-900">
         <code>{code}</code>
       </pre>
     </div>

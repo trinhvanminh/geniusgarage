@@ -5,5 +5,9 @@ export default defineConfig({
     environment: "jsdom", // jsdom - Simulates browser DOM in Node.js
     globals: true, // No need to import describe, it, expect in every test
     setupFiles: ["./src/test/setup.ts"], // Runs before all tests (we'll add custom matchers here)
+    coverage: {
+      provider: "v8",
+      reporter: ["text", "html"],
+    },
   },
 });
