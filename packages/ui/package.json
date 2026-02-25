@@ -11,15 +11,22 @@
     ".": "./src/index.ts"
   },
   "scripts": {
-    "build": "tsc --noEmit"
+    "build": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest"
   },
   "peerDependencies": {
     "react": "^18.0.0 || ^19.0.0",
     "react-dom": "^18.0.0 || ^19.0.0"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
+    "@types/jest": "^30.0.0",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "typescript": "^5"
+    "jsdom": "^28.1.0",
+    "typescript": "^5",
+    "vitest": "^4.0.18"
   }
 }
