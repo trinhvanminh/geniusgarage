@@ -10,6 +10,9 @@
     "./snippet-card": "./src/snippet-card.tsx",
     ".": "./src/index.ts"
   },
+  "scripts": {
+    "build": "tsc --noEmit"
+  },
   "peerDependencies": {
     "react": "^18.0.0 || ^19.0.0",
     "react-dom": "^18.0.0 || ^19.0.0"
