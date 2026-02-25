@@ -8,12 +8,15 @@
   },
   "scripts": {
     "build": "tsc --noEmit",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "test": "vitest run"
   },
   "devDependencies": {
-    "@geniusgarage/typescript-config": "workspace:*",
     "@geniusgarage/eslint-config": "workspace:*",
+    "@geniusgarage/typescript-config": "workspace:*",
+    "@vitest/coverage-v8": "4.0.18",
     "eslint": "^9",
-    "typescript": "^5"
+    "typescript": "^5",
+    "vitest": "^4.0.18"
   }
 }
