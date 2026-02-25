@@ -26,6 +26,9 @@ importers:
       '@geniusgarage/ui':
         specifier: workspace:*
         version: link:../../packages/ui
+      '@geniusgarage/utils':
+        specifier: workspace:*
+        version: link:../../packages/utils
       next:
         specifier: 16.1.6
         version: 16.1.6(@babel/core@7.28.6)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
@@ -142,6 +145,21 @@ importers:
       '@types/react-dom':
         specifier: ^19
         version: 19.2.3(@types/react@19.2.8)
+      typescript:
+        specifier: ^5
+        version: 5.9.3
+
+  packages/utils:
+    devDependencies:
+      '@geniusgarage/eslint-config':
+        specifier: workspace:*
+        version: link:../eslint-config
+      '@geniusgarage/typescript-config':
+        specifier: workspace:*
+        version: link:../typescript-config
+      eslint:
+        specifier: ^9
+        version: 9.39.2(jiti@2.6.1)
       typescript:
         specifier: ^5
         version: 5.9.3

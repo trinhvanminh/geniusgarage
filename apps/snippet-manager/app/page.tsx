@@ -3,6 +3,7 @@
 import { SnippetCard } from "@geniusgarage/ui";
 import { Button } from "@geniusgarage/ui/button";
 import { useState } from "react";
+import { formatDate } from "../../../packages/utils/src";
 
 interface Snippet {
   id: number;
@@ -10,7 +11,7 @@ interface Snippet {
   language: string;
   code: string;
   tags: string[];
-  createdAt: string; // Add this field
+  createdAt: Date; // Add this field
 }
 
 const initialSnippets: Snippet[] = [
@@ -20,7 +21,7 @@ const initialSnippets: Snippet[] = [
     language: "javascript",
     code: "const sum = arr.reduce((acc, n) => acc + n, 0)",
     tags: ["javascript", "array", "functional"],
-    createdAt: "Jan 15, 2026", // Add this
+    createdAt: new Date("2026-01-15"),
   },
   {
     id: 2,
@@ -31,7 +32,7 @@ const initialSnippets: Snippet[] = [
   return () => clearTimeout(timer)
 }, [])`,
     tags: ["react", "hooks", "typescript"],
-    createdAt: "Feb 20, 2026", // Add this
+    createdAt: new Date("2026-02-20"), // Add this
   },
   {
     id: 3,
@@ -39,7 +40,7 @@ const initialSnippets: Snippet[] = [
     language: "javascript",
     code: "const results = await Promise.all(promises.map(p => p()))",
     tags: ["javascript", "async", "promises"],
-    createdAt: "Mar 10, 2026", // Add this
+    createdAt: new Date("2026-03-10"), // Add this
   },
 ];
 
@@ -69,11 +70,7 @@ export default function Home() {
         .split(",")
         .map((t) => t.trim())
         .filter(Boolean),
-      createdAt: new Date().toLocaleDateString("en-US", {
-        month: "short",
-        day: "numeric",
-        year: "numeric",
-      }),
+      createdAt: new Date(),
     };
 
     // Add to snippets array (newest first)
@@ -263,7 +260,14 @@ export default function Home() {
         {/* Snippet Grid */}
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {snippets.map((snippet) => (
-            <SnippetCard key={snippet.id} {...snippet} />
+            <SnippetCard
+              key={snippet.id}
+              title={snippet.title}
+              language={snippet.language}
+              code={snippet.code}
+              tags={snippet.tags}
+              createdAt={formatDate(snippet.createdAt)}
+            />
           ))}
         </div>
       </div>
