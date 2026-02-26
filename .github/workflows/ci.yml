@@ -8,10 +8,15 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+      TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Fetch full history to enable accurate change detection
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v2
@@ -24,8 +29,17 @@ jobs:
           node-version: 20
           cache: "pnpm"
 
+      - name: Cache Turborepo
+        uses: actions/cache@v3
+        with:
+          path: .turbo/cache
+          key: ${{ runner.os }}-turbo-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-turbo-
+
       - name: Install dependencies
         run: pnpm install
 
-      - name: Run build, lint and test
-        run: npx turbo build lint test
+      - name: Run build, lint, and test (changed packages only)
+        # changes compared to main
+        run: pnpm build lint test --filter=[origin/main]

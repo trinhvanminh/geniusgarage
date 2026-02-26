@@ -35,3 +35,52 @@ pnpm dev
 - [Turborepo Documentation](https://turbo.build/repo/docs)
 - [pnpm Documentation](https://pnpm.io)
 - [Next.js Documentation](https://nextjs.org/docs)
+
+
+## [Filtering git based](https://vercel.com/academy/production-monorepos/filtering-git-based)
+
+- Exact package:
+
+```bash
+--filter @geniusgarage/web
+```
+
+- Package + dependencies:
+
+```bash
+--filter @geniusgarage/web...
+```
+
+- Package + dependents:
+
+```bash
+--filter ...@geniusgarage/ui
+```
+
+- Multiple packages:
+
+```bash
+--filter @geniusgarage/web --filter @geniusgarage/snippet-manager
+```
+
+- All apps:
+
+```bash
+--filter "./apps/*"
+```
+
+- All packages:
+
+```bash
+--filter "./packages/*"
+```
+
+- Changed since main:
+
+```bash
+--filter=[main]
+```
+
+
+
+https://vercel.com/academy/production-monorepos/remote-caching#4-update-ci-workflow
