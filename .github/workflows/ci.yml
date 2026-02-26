@@ -38,4 +38,5 @@ jobs:
         run: pnpm install
 
       - name: Run build, lint, and test (changed packages only)
+        # changes compared to main
         run: pnpm build lint test --filter=[origin/main]
