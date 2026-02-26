@@ -12,6 +12,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Fetch full history to enable accurate change detection
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v2
@@ -24,8 +26,16 @@ jobs:
           node-version: 20
           cache: "pnpm"
 
+      - name: Cache Turborepo
+        uses: actions/cache@v3
+        with:
+          path: node_modules/.cache/turbo
+          key: ${{ runner.os }}-turbo-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-turbo-
+
       - name: Install dependencies
         run: pnpm install
 
-      - name: Run build, lint and test
-        run: pnpm build lint test
+      - name: Run build, lint, and test (changed packages only)
+        run: pnpm build lint test --filter=[origin/main]
