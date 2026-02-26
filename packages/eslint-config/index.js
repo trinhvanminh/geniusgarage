@@ -27,6 +27,6 @@ export default [
     },
   },
   {
-    ignores: ["node_modules/", ".next/", ".turbo/", "dist/"],
+    ignores: ["node_modules/", ".next/", ".turbo/", "dist/", "coverage/"],
   },
 ];

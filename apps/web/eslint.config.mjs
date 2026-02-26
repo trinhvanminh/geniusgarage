@@ -1,3 +1,3 @@
 import sharedConfig from "@geniusgarage/eslint-config";
 
-export default [...sharedConfig];
+export default sharedConfig;
