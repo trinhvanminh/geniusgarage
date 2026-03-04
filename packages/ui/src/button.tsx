@@ -1,7 +1,7 @@
 export interface ButtonProps {
   children: React.ReactNode;
   onClick?: () => void;
-  variant?: "primary" | "secondary" | "danger";
+  variant?: "primary" | "secondary" | "danger" | "success";
   className?: string;
 }
 
@@ -20,6 +20,7 @@ export function Button({
       "bg-gray-200 text-gray-900 hover:bg-gray-300 focus:ring-gray-500 active:bg-gray-400",
     danger:
       "bg-red-500 text-white hover:bg-red-600 focus:ring-red-500 active:bg-red-700",
+    success: 'bg-green-500 text-white hover:bg-green-600',  // New variant
   };
 
   return (
